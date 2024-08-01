@@ -92,6 +92,8 @@ class InvoiceController extends Controller
         return InvoiceProduct::where(['user_id'=>$user_id,'invoice_id'=>$invoice_id])->with('product')->get();
     }
 
+    
+
     function PaymentSuccess(Request $request){
         SSLCommerz::InitiateSuccess($request->query('tran_id'));
         return redirect('/profile');
